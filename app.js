@@ -128,7 +128,7 @@ app.get('/api/login', function(req, res) {
       }
     })
   } else {
-    res.redirect('/api/home')
+    res.redirect('/api/login')
   }
 })
 
