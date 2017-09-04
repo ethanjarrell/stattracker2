@@ -54,7 +54,7 @@ mongoose.Promise = require('bluebird');
 
 //Place holder if you don't go to the correct endpoint to start
 app.get('/', function(req, res) {
-  res.redirect('/api/home');
+  res.redirect('/api/splash');
 });
 //End of place holder
 
@@ -106,7 +106,7 @@ app.get('/api/signup', function(req, res) {
 //====POST TO SIGNUP PAGE===//
 
 app.post('/signup', function(req, res) {
-  User.Create({
+  User.create({
     username: req.body.username,
     password: req.body.password
   }).then(function(user) {
@@ -115,8 +115,6 @@ app.post('/signup', function(req, res) {
     res.redirect('/api/login')
     console.log(req.session);
   })
-
-
 })
 
 //====RENDER LOGIN PAGE===//
