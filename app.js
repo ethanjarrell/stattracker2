@@ -55,6 +55,11 @@ app.get('/', function(req, res) {
   res.redirect('/api/splash');
 });
 
+app.use(function(req, res, next) {
+  console.log('I dont like programming anymore');
+  next();
+})
+
 
 //====RENDER SPLASHPAGE===//
 
