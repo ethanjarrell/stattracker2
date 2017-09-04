@@ -10,6 +10,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Category = require('./models/category');
 const User = require('./models/user.js');
 const mongoose = require('mongoose');
+const session = require('express-session');
 const app = express();
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
@@ -20,6 +21,12 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(expressValidator());
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
 
 mongoose.Promise = require('bluebird');
 
@@ -79,7 +86,7 @@ app.get('/api/splash', function(req, res) {
   });
 });
 
-//====RENDER LOGIN PAGE===//
+//====RENDER SIGNUP PAGE===//
 
 app.get('/api/signup', function(req, res) {
   User.find({}).then(function(users) {
@@ -96,32 +103,71 @@ app.get('/api/signup', function(req, res) {
   });
 });
 
+//====POST TO SIGNUP PAGE===//
+
+app.post('/signup', function(req, res) {
+  User.Create({
+    username: req.body.username,
+    password: req.body.password
+  }).then(function(user) {
+    req.username = user.username;
+    req.session.authenticated = true;
+    res.redirect('/api/login')
+    console.log(req.session);
+  })
+
+
+})
+
 //====RENDER LOGIN PAGE===//
 
 app.get('/api/login', function(req, res) {
-  User.find({}).then(function(users) {
-    Category.find({}).then(function(categories) {
-      Activity.find({}).then(function(activities) {
-        console.log(activities);
-        res.render('login', {
-          users: users,
-          categories: categories,
-          activities: activities,
-        })
-      });
-    });
-  });
-});
+  if (req.session && req.session.authenticated) {
+    var user = User.findOne({
+        username: req.session.username,
+        password: req.session.password
+      }).then(function(user) {
+      if (user) {
+        req.session.username = req.body.username;
+        req.session.userId = user.dataValues.id;
+        let username = req.session.username;
+        let userid = req.session.userId;
+        res.render('home', {
+          user: user
+        });
+      }
+    })
+  } else {
+    res.redirect('/api/home')
+  }
+})
+
+
+
 
 //====POST LOGIN FOR USER===//
 
 app.post('/api/login', function(req, res) {
-  User.create({
-    activity_type: req.body.category,
-  }).then(activity => {
-    res.redirect('/api/home')
-  });
-});
+  let username = req.body.username;
+  let password = req.body.password;
+
+  User.findOne({
+      username: username,
+      password: password
+  }).then(user => {
+    if (user.password == password) {
+      req.session.username = username;
+      req.session.userId = user.dataValues.id;
+      req.session.authenticated = true;
+      console.log(req.session);
+
+      res.redirect('/api/home');
+    } else {
+      res.redirect('/api/login');
+      console.log("This is my session", req.session)
+    }
+  })
+})
 
 //====CREATE NEW CATEGORY===//
 
