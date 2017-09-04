@@ -47,7 +47,7 @@ mongoose.Promise = require('bluebird');
 
 //Place holder if you don't go to the correct endpoint to start
 app.get('/', function(req, res) {
-  res.redirect('/api/splash');
+  res.redirect('/api/home');
 });
 //End of place holder
 
