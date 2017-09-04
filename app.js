@@ -30,7 +30,7 @@ var url = process.env.MONGOLAB_URI;
 mongoose.connect('mongodb://localhost:27017/stats', { config: { autoIndex: false } });
 
 // Use connect method to connect to the Server
-  mongoose.connect(url, function, (err, db) {
+  mongoose.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
