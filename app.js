@@ -2,6 +2,7 @@ const express = require('express');
 const parseurl = require('parseurl');
 const bodyParser = require('body-parser');
 const path = require('path');
+const url = process.env.MONGOLAB_URI;
 const expressValidator = require('express-validator');
 const mustacheExpress = require('mustache-express');
 const Activity = require('./models/activity');
@@ -25,19 +26,12 @@ app.use(expressValidator());
 
 mongoose.Promise = require('bluebird');
 
-var url = process.env.MONGOLAB_URI;
-
 // Use connect method to connect to the Server
   mongoose.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
     console.log('Connection established to', url);
-
-    // do some work here with the database.
-
-    //Close connection
-
   }
 });
 
