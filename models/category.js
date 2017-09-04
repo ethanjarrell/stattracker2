@@ -9,10 +9,6 @@ activity_type: {
   type: String,
 },
 
-stats: [{
-  type: String,
-  ref: 'Activity',
-}],
 });
 
 categorySchema.plugin(uniqueValidator);

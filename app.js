@@ -1,3 +1,5 @@
+//====LIST DEPENDENCIES===//
+
 const express = require('express');
 const parseurl = require('parseurl');
 const bodyParser = require('body-parser');
@@ -12,6 +14,9 @@ const User = require('./models/user.js');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const app = express();
+
+//====SET APP ENGINE===//
+
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', './views');
@@ -22,15 +27,20 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(expressValidator());
 
+//====START SESSION===//
+
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
 }));
 
+//====MONGOOSE PROMISE===//
+
 mongoose.Promise = require('bluebird');
 
-// Use connect method to connect to the Server
+//====USE MONGOOSE TO CONNECT TO URL===//
+
   mongoose.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
@@ -39,35 +49,12 @@ mongoose.Promise = require('bluebird');
   }
 });
 
+//====REDIRECT TO SPLASH WHEN REACHED ROOT===//
 
-
-// var user = User.findOne({username: "Ethan"}, function(err, user){
-//   user.password = 'test';
-//   user.save(function(err){
-//     if (err) {return console.log('user not saved')}
-//     console.log('user saved!')
-//   })
-// });
-
-
-//End of Authentication Section
-
-//Place holder if you don't go to the correct endpoint to start
 app.get('/', function(req, res) {
   res.redirect('/api/splash');
 });
-//End of place holder
 
-
-//Authentication to endpoint, just returns "You have been authenticated"
-
-//End of authentication endpoint
-
-
-app.use(function(req, res, next) {
-  console.log('I dont like programming anymore');
-  next();
-})
 
 //====RENDER SPLASHPAGE===//
 
