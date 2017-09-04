@@ -108,13 +108,11 @@ app.get('/api/login', function(req, res) {
         req.session.userId = user.dataValues.id;
         username = req.session.username;
         userid = req.session.userId;
-        res.render('home', {
+        res.render('login', {
           user: user
         });
       }
     })
-  } else {
-    res.redirect('/api/login')
   }
 })
 
