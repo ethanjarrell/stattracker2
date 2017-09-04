@@ -52,7 +52,7 @@ mongoose.Promise = require('bluebird');
 //====REDIRECT TO SPLASH WHEN AT ROOT===//
 
 app.get('/', function(req, res) {
-  res.redirect('/api/splash');
+  res.render('splash');
 });
 
 app.use(function(req, res, next) {
