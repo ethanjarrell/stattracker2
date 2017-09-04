@@ -25,8 +25,23 @@ app.use(expressValidator());
 
 mongoose.Promise = require('bluebird');
 
+var url = process.env.MONGOLAB_URI;
 
 mongoose.connect('mongodb://localhost:27017/stats', { config: { autoIndex: false } });
+
+// Use connect method to connect to the Server
+  mongoose.connect(url, function, (err, db) {
+  if (err) {
+    console.log('Unable to connect to the mongoDB server. Error:', err);
+  } else {
+    console.log('Connection established to', url);
+
+    // do some work here with the database.
+
+    //Close connection
+    db.close();
+  }
+});
 
 //Authentication Section
 passport.use(new BasicStrategy(
