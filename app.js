@@ -52,7 +52,7 @@ mongoose.Promise = require('bluebird');
 //====REDIRECT TO SPLASH WHEN AT ROOT===//
 
 app.get('/', function(req, res) {
-  res.render('splash');
+  res.redirect('/api/splash');
 });
 
 app.use(function(req, res, next) {
@@ -120,8 +120,8 @@ app.get('/api/login', function(req, res) {
       if (user) {
         req.session.username = req.body.username;
         req.session.userId = user.dataValues.id;
-        let username = req.session.username;
-        let userid = req.session.userId;
+        username = req.session.username;
+        userid = req.session.userId;
         res.render('home', {
           user: user
         });
@@ -135,8 +135,8 @@ app.get('/api/login', function(req, res) {
 //====POST LOGIN FOR USER===//
 
 app.post('/api/login', function(req, res) {
-  let username = req.body.username,
-  let password = req.body.password,
+  username = req.body.username,
+  password = req.body.password,
   User.findOne({
       username: username,
       password: password
