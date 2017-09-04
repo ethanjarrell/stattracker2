@@ -99,7 +99,7 @@ app.get('/api/signup', function(req, res) {
 
 app.get('/api/login', function(req, res) {
   if (req.session && req.session.authenticated) {
-    var user = User.findOne({
+    User.findOne({
         username: req.session.username,
         password: req.session.password
       }).then(function(user) {
@@ -160,7 +160,7 @@ app.post('/api/login', function(req, res) {
 app.post('/api/home', function(req, res) {
   Category.create({
     activity_type: req.body.category,
-    // activities: req.params,
+    user: req.params.username,
   }).then(activity => {
     res.redirect('/api/home')
   });
