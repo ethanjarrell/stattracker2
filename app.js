@@ -167,7 +167,7 @@ app.post('/api/home', function(req, res) {
 //====RENDER HOME PAGE===//
 
 app.get('/api/home', function(req, res) {
-  User.find({username: req.params.home}).then(function(users) {
+  User.find({}).then(function(users) {
     Category.find({}).then(function(categories) {
       Activity.find({}).then(function(activities) {
         console.log(activities);
