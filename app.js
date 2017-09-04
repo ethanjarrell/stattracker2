@@ -95,14 +95,14 @@ app.get('/api/signup', function(req, res) {
 app.post('/api/signup', function(req, res) {
   User.create({
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
   }).then(function(user) {
     req.username = user.username;
     req.session.authenticated = true;
-    res.redirect('/api/login')
-    console.log(req.session);
-  })
-})
+}).then(user => {
+  res.redirect('/api/login')
+});
+});
 
 //====RENDER LOGIN PAGE===//
 
@@ -133,9 +133,8 @@ app.get('/api/login', function(req, res) {
 //====POST LOGIN FOR USER===//
 
 app.post('/api/login', function(req, res) {
-  let username = req.body.username;
-  let password = req.body.password;
-
+  let username = req.body.username,
+  let password = req.body.password,
   User.findOne({
       username: username,
       password: password
