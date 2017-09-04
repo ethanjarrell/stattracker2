@@ -10,9 +10,6 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Category = require('./models/category');
 const User = require('./models/user.js');
 const mongoose = require('mongoose');
-const passport = require('passport');
-const BasicStrategy = require('passport-http').BasicStrategy;
-const bcrypt = require('bcryptjs');
 const app = express();
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
@@ -35,20 +32,7 @@ mongoose.Promise = require('bluebird');
   }
 });
 
-//Authentication Section
-passport.use(new BasicStrategy(
-  function(username, password, done) {
-    User.findOne({
-      username: username
-    }, function(err, user) {
-      // console.log("Here is the User " + user);
-      if (user && bcrypt.compareSync(password, user.password)) {
-        return done(null, user);
-      }
-      return done(null, false);
-    });
-  }
-));
+
 
 // var user = User.findOne({username: "Ethan"}, function(err, user){
 //   user.password = 'test';
@@ -58,14 +42,7 @@ passport.use(new BasicStrategy(
 //   })
 // });
 
-app.get('/api/auth',
-  passport.authenticate('basic', {
-    session: false
-  }),
-  function(req, res) {
-    res.send('You have been authenticated, ' + req.user.username);
-  }
-);
+
 //End of Authentication Section
 
 //Place holder if you don't go to the correct endpoint to start
@@ -76,14 +53,7 @@ app.get('/', function(req, res) {
 
 
 //Authentication to endpoint, just returns "You have been authenticated"
-app.get('/api/auth',
-  passport.authenticate('basic', {
-    session: false
-  }),
-  function(req, res) {
-    res.send('You have been authenticated, ' + req.user.name);
-  }
-);
+
 //End of authentication endpoint
 
 
@@ -94,9 +64,7 @@ app.use(function(req, res, next) {
 
 //====RENDER SPLASHPAGE===//
 
-app.get('/api/splash', passport.authenticate('basic', {
-  session: false
-}), function(req, res) {
+app.get('/api/splash', function(req, res) {
   User.find({}).then(function(users) {
     Category.find({}).then(function(categories) {
       Activity.find({}).then(function(activities) {
@@ -113,9 +81,7 @@ app.get('/api/splash', passport.authenticate('basic', {
 
 //====RENDER LOGIN PAGE===//
 
-app.get('/api/signup', passport.authenticate('basic', {
-  session: false
-}), function(req, res) {
+app.get('/api/signup', function(req, res) {
   User.find({}).then(function(users) {
     Category.find({}).then(function(categories) {
       Activity.find({}).then(function(activities) {
@@ -132,7 +98,7 @@ app.get('/api/signup', passport.authenticate('basic', {
 
 //====RENDER LOGIN PAGE===//
 
-app.get('/api/login', passport.authenticate('basic', { session: false}), function(req, res) {
+app.get('/api/login', function(req, res) {
   User.find({}).then(function(users) {
     Category.find({}).then(function(categories) {
       Activity.find({}).then(function(activities) {
@@ -149,9 +115,7 @@ app.get('/api/login', passport.authenticate('basic', { session: false}), functio
 
 //====POST LOGIN FOR USER===//
 
-app.post('/api/login', passport.authenticate('basic', {
-  session: false
-}), function(req, res) {
+app.post('/api/login', function(req, res) {
   User.create({
     activity_type: req.body.category,
   }).then(activity => {
@@ -161,9 +125,7 @@ app.post('/api/login', passport.authenticate('basic', {
 
 //====CREATE NEW CATEGORY===//
 
-app.post('/api/home', passport.authenticate('basic', {
-  session: false
-}), function(req, res) {
+app.post('/api/home', function(req, res) {
   Category.create({
     activity_type: req.body.category,
     // activities: req.params,
@@ -174,9 +136,7 @@ app.post('/api/home', passport.authenticate('basic', {
 
 //====RENDER HOME PAGE===//
 
-app.get('/api/home', passport.authenticate('basic', {
-  session: false
-}), function(req, res) {
+app.get('/api/home', function(req, res) {
   User.find({}).then(function(users) {
     Category.find({}).then(function(categories) {
       Activity.find({}).then(function(activities) {
@@ -193,9 +153,7 @@ app.get('/api/home', passport.authenticate('basic', {
 
 //====CREATE ACTIVITY===//
 
-app.post('/api/:activity/:_id', passport.authenticate('basic', {
-  session: false
-}), function(req, res) {
+app.post('/api/:activity/:_id', function(req, res) {
   Activity.create({
     activity_name: req.body.activity,
     quantity: req.body.quantity,
@@ -210,9 +168,7 @@ app.post('/api/:activity/:_id', passport.authenticate('basic', {
 
 //====RENDER ACTIVITY PAGE===//
 
-app.get('/api/:activity/:_id', passport.authenticate('basic', {
-  session: false
-}), function(req, res) {
+app.get('/api/:activity/:_id', function(req, res) {
   User.find({}).then(function(users) {
     Category.findOne({activity_type: req.params.activity}).then(function(categories) { Activity.find({category: req.params.activity}).then(function(activities) {
         res.render('activity', {
@@ -226,9 +182,7 @@ app.get('/api/:activity/:_id', passport.authenticate('basic', {
 
 //====RENDER SPECIFIC ACTIVITY===//
 
-app.get('/api/:activity', passport.authenticate('basic', {
-  session: false
-}), function(req, res) {
+app.get('/api/:activity', function(req, res) {
   User.find({}).then(function(users) {
     Category.findOne({activity_type: req.params.activity}).then(function(categories) { Activity.find({ activity_name: req.params.activity
     }).then(function(activities) {
