@@ -105,7 +105,7 @@ app.get('/api/signup', function(req, res) {
 
 //====POST TO SIGNUP PAGE===//
 
-app.post('/signup', function(req, res) {
+app.post('/api/signup', function(req, res) {
   User.create({
     username: req.body.username,
     password: req.body.password
