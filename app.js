@@ -49,7 +49,7 @@ mongoose.Promise = require('bluebird');
   }
 });
 
-//====REDIRECT TO SPLASH WHEN REACHED ROOT===//
+//====REDIRECT TO SPLASH WHEN AT ROOT===//
 
 app.get('/', function(req, res) {
   res.redirect('/api/splash');
@@ -126,9 +126,6 @@ app.get('/api/login', function(req, res) {
     res.redirect('/api/home')
   }
 })
-
-
-
 
 //====POST LOGIN FOR USER===//
 
