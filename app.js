@@ -95,20 +95,6 @@ app.get('/api/signup', function(req, res) {
   });
 });
 
-//====POST TO SIGNUP PAGE===//
-
-app.post('/api/signup', function(req, res) {
-  User.create({
-    username: req.body.username,
-    password: req.body.password,
-  }).then(function(user) {
-    req.username = user.username;
-    req.session.authenticated = true;
-}).then(user => {
-  res.redirect('/api/login')
-});
-});
-
 //====RENDER LOGIN PAGE===//
 
 app.get('/api/login', function(req, res) {
@@ -131,6 +117,20 @@ app.get('/api/login', function(req, res) {
     res.redirect('/api/login')
   }
 })
+
+//====POST TO SIGNUP PAGE===//
+
+app.post('/api/signup', function(req, res) {
+  User.create({
+    username: req.body.username,
+    password: req.body.password,
+  }).then(function(user) {
+    req.username = user.username;
+    req.session.authenticated = true;
+}).then(user => {
+  res.redirect('/api/login')
+});
+});
 
 //====POST LOGIN FOR USER===//
 
