@@ -108,13 +108,13 @@ app.get('/api/login', function(req, res) {
         req.session.userId = user.dataValues.id;
         username = req.session.username;
         userid = req.session.userId;
+      }
         res.render('login', {
           user: user
         });
       }
     })
-  }
-})
+  })
 
 //====POST TO SIGNUP PAGE===//
 
@@ -167,7 +167,7 @@ app.post('/api/home', function(req, res) {
 //====RENDER HOME PAGE===//
 
 app.get('/api/home', function(req, res) {
-  User.find({}).then(function(users) {
+  User.find({username: req.params.home}).then(function(users) {
     Category.find({}).then(function(categories) {
       Activity.find({}).then(function(activities) {
         console.log(activities);
