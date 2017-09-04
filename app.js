@@ -197,7 +197,7 @@ app.get('/api/:activity', function(req, res) {
 });
 
 
-app.listen(3000);
+app.listen(process.env.PORT);
 console.log('starting applicaiton.  Good job!');
 
 module.exports = app;
