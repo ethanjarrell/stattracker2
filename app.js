@@ -27,8 +27,6 @@ mongoose.Promise = require('bluebird');
 
 var url = process.env.MONGOLAB_URI;
 
-mongoose.connect('mongodb://localhost:27017/stats', { config: { autoIndex: false } });
-
 // Use connect method to connect to the Server
   mongoose.connect(url, function (err, db) {
   if (err) {
@@ -39,7 +37,7 @@ mongoose.connect('mongodb://localhost:27017/stats', { config: { autoIndex: false
     // do some work here with the database.
 
     //Close connection
-    db.close();
+
   }
 });
 
