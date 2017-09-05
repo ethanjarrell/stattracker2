@@ -141,12 +141,7 @@ app.post('/api/signup', function(req, res) {
 //====POST LOGIN FOR USER===//
 
 app.post('/api/login', function(req, res) {
-  User.findOne({
-    where: {
-      username: req.body.username,
-      password: req.body.password,
-    }
-  }).then(user => {
+
     if (user.password == password) {
       req.session.username = username;
       req.session.userId = user.dataValues.id;
@@ -157,9 +152,8 @@ app.post('/api/login', function(req, res) {
     } else {
       res.redirect('/api/login');
       console.log("This is my session", req.session)
-    }
-  })
-})
+  }
+});
 
 //====CREATE NEW CATEGORY===//
 
