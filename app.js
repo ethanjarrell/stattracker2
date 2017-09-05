@@ -146,14 +146,17 @@ app.get('/api/login', function(req, res) {
 //====POST LOGIN FOR USER===//
 
 app.post('/api/login', function(req, res) {
+  let usernameA = req.body.username;
+  let passwordA = req.body.password;
+
   User.findOne({
     where: {
-      username : req.body.username,
-      password : req.body.password,
+      username: usernameA,
+      password: passwordA,
     }
   }).then(user => {
-    if (user.password == password) {
-      req.session.username = username;
+    if (user.password == passwordA) {
+      req.session.username = usernameA;
       req.session.userId = user.dataValues.id;
       req.session.authenticated = true;
       console.log(req.session);
