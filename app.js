@@ -4,16 +4,16 @@ const express = require('express');
 const parseurl = require('parseurl');
 const bodyParser = require('body-parser');
 const path = require('path');
-const url = process.env.MONGOLAB_URI;
 const expressValidator = require('express-validator');
 const mustacheExpress = require('mustache-express');
-const Activity = require('./models/activity');
 const uniqueValidator = require('mongoose-unique-validator');
+const Activity = require('./models/activity');
 const Category = require('./models/category');
 const User = require('./models/user.js');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const app = express();
+const url = process.env.MONGOLAB_URI;
 
 //==========================//
 
@@ -137,7 +137,7 @@ app.get('/api/login', function(req, res) {
       }
     })
   } else {
-    res.redirect('/api/home')
+    res.redirect('/api/splash')
   }
 })
 
