@@ -139,13 +139,13 @@ app.post('/api/signup', function(req, res) {
 //====POST LOGIN FOR USER===//
 
 app.post('/api/login', function(req, res) {
-  username = req.body.username;
-  password = req.body.password;
+  var username = req.body.username;
+  var password = req.body.password;
 
   User.findOne({
     where: {
       username: username,
-      password: password
+      password: password,
     }
   }).then(user => {
     if (user.password == password) {
