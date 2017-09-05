@@ -111,10 +111,10 @@ app.get('/api/login', function(req, res) {
       }
         res.render('login', {
           user: user
-        });
-      }
-    })
-  })
+        })
+      })
+    }}
+  );
 
 //====POST TO SIGNUP PAGE===//
 
