@@ -201,7 +201,7 @@ app.post('/api/home', function(req, res) {
 //====RENDER HOME PAGE===//
 
 app.get('/api/home', function(req, res) {
-  User.find({}).then(function(users) {
+  User.find({username: req.session.username}).then(function(users) {
     Category.find({}).then(function(categories) {
       Activity.find({}).then(function(activities) {
         console.log(activities);
@@ -237,7 +237,7 @@ app.post('/api/:activity/:_id', function(req, res) {
 //====RENDER ACTIVITY PAGE===//
 
 app.get('/api/:activity/:_id', function(req, res) {
-  User.find({}).then(function(users) {
+  User.findOne({username: req.session.username}).then(function(users) {
     Category.findOne({activity_type: req.params.activity}).then(function(categories) { Activity.find({category: req.params.activity}).then(function(activities) {
         res.render('activity', {
           users: users,
@@ -253,7 +253,7 @@ app.get('/api/:activity/:_id', function(req, res) {
 //====RENDER SPECIFIC ACTIVITY===//
 
 app.get('/api/:activity', function(req, res) {
-  User.find({}).then(function(users) {
+  User.find({username: req.session.username}).then(function(users) {
     Category.findOne({activity_type: req.params.activity}).then(function(categories) { Activity.find({ activity_name: req.params.activity
     }).then(function(activities) {
           res.render('date', {
