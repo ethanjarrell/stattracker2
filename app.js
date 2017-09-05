@@ -15,6 +15,8 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const app = express();
 
+//==========================//
+
 //====SET APP ENGINE===//
 
 app.engine('mustache', mustacheExpress());
@@ -27,6 +29,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(expressValidator());
 
+//==========================//
+
 //====START SESSION===//
 
 app.use(session({
@@ -35,9 +39,13 @@ app.use(session({
   saveUninitialized: true
 }));
 
+//==========================//
+
 //====MONGOOSE PROMISE===//
 
 mongoose.Promise = require('bluebird');
+
+//==========================//
 
 //====USE MONGOOSE TO CONNECT TO URL===//
 
@@ -48,6 +56,8 @@ mongoose.Promise = require('bluebird');
     console.log('Connection established to', url);
   }
 });
+
+//==========================//
 
 //====REDIRECT TO SPLASH WHEN AT ROOT===//
 
@@ -60,6 +70,7 @@ app.use(function(req, res, next) {
   next();
 })
 
+//==========================//
 
 //====RENDER SPLASHPAGE===//
 
@@ -78,11 +89,7 @@ app.get('/api/splash', function(req, res) {
   });
 });
 
-//====RENDER LOGIN PAGE???===//
-
-app.get('/api/login', function(req, res) {
-  res.render('login');
-});
+//==========================//
 
 //====RENDER SIGNUP PAGE===//
 
@@ -101,42 +108,40 @@ app.get('/api/signup', function(req, res) {
   });
 });
 
+//==========================//
+
+//====RENDER LOGIN PAGE???===//
+
+app.get('/api/login', function(req, res) {
+  res.render('login');
+});
+
+//==========================//
+
 //====RENDER LOGIN PAGE===//
 
-// app.get('/api/login', function(req, res) {
-//   if (req.session && req.session.authenticated) {
-//     User.findOne({
-//         username: req.session.username,
-//         password: req.session.password
-//       }).then(function(user) {
-//       if (user) {
-//         req.session.username = req.body.username;
-//         req.session.userId = user.dataValues.id;
-//         var username = req.session.username;
-//         var userid = req.session.userId;
-//         res.render('splash', {
-//           user: user
-//         });
-//       }
-//     })
-//   } else {
-//     res.redirect('/api/home')
-//   }
-// })
+app.get('/api/login', function(req, res) {
+  if (req.session && req.session.authenticated) {
+    User.findOne({
+        username: req.session.username,
+        password: req.session.password
+      }).then(function(user) {
+      if (user) {
+        req.session.username = req.body.username;
+        req.session.userId = user.dataValues.id;
+        var username = req.session.username;
+        var userid = req.session.userId;
+        res.render('splash', {
+          user: user
+        });
+      }
+    })
+  } else {
+    res.redirect('/api/home')
+  }
+})
 
-//====POST TO SIGNUP PAGE===//
-
-app.post('/api/signup', function(req, res) {
-  User.create({
-    username: req.body.username,
-    password: req.body.password,
-  }).then(function(user) {
-    req.username = user.username;
-    req.session.authenticated = true;
-}).then(user => {
-  res.redirect('/api/login')
-});
-});
+//==========================//
 
 //====POST LOGIN FOR USER===//
 
@@ -161,6 +166,24 @@ app.post('/api/login', function(req, res) {
   })
 })
 
+//==========================//
+
+//====POST TO SIGNUP PAGE===//
+
+app.post('/api/signup', function(req, res) {
+  User.create({
+    username: req.body.username,
+    password: req.body.password,
+  }).then(function(user) {
+    req.username = user.username;
+    req.session.authenticated = true;
+}).then(user => {
+  res.redirect('/api/login')
+});
+});
+
+//==========================//
+
 //====CREATE NEW CATEGORY===//
 
 app.post('/api/home', function(req, res) {
@@ -171,6 +194,8 @@ app.post('/api/home', function(req, res) {
     res.redirect('/api/home')
   });
 });
+
+//==========================//
 
 //====RENDER HOME PAGE===//
 
@@ -189,6 +214,8 @@ app.get('/api/home', function(req, res) {
   });
 });
 
+//==========================//
+
 //====CREATE ACTIVITY===//
 
 app.post('/api/:activity/:_id', function(req, res) {
@@ -204,6 +231,8 @@ app.post('/api/:activity/:_id', function(req, res) {
   });
 });
 
+//==========================//
+
 //====RENDER ACTIVITY PAGE===//
 
 app.get('/api/:activity/:_id', function(req, res) {
@@ -217,6 +246,8 @@ app.get('/api/:activity/:_id', function(req, res) {
     });
   });
 });
+
+//==========================//
 
 //====RENDER SPECIFIC ACTIVITY===//
 
@@ -234,8 +265,15 @@ app.get('/api/:activity', function(req, res) {
   });
 });
 
+//==========================//
+
+//====APP LISTEN ON ENVIRONMENT PORT===//
 
 app.listen(process.env.PORT);
 console.log('starting applicaiton.  Good job!');
+
+//==========================//
+
+//====EXPORT APP===//
 
 module.exports = app;
