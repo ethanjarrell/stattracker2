@@ -142,8 +142,10 @@ app.post('/api/signup', function(req, res) {
 
 app.post('/api/login', function(req, res) {
   User.findOne({
+    where: {
       username: req.body.username,
       password: req.body.password,
+    }
   }).then(user => {
     if (user.password == password) {
       req.session.username = username;
