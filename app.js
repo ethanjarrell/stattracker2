@@ -189,7 +189,7 @@ app.post('/api/signup', function(req, res) {
 app.post('/api/home', function(req, res) {
   Category.create({
     activity_type: req.body.category,
-    user: req.params.username,
+    user: req.session.username,
   }).then(activity => {
     res.redirect('/api/home')
   });
@@ -201,8 +201,8 @@ app.post('/api/home', function(req, res) {
 
 app.get('/api/home', function(req, res) {
   User.find({username: req.session.username}).then(function(users) {
-    Category.find({}).then(function(categories) {
-      Activity.find({}).then(function(activities) {
+    Category.find({user: req.session.username}).then(function(categories) {
+      Activity.find({user: req.session.username}).then(function(activities) {
         console.log(activities);
         res.render('home', {
           users: users,
@@ -224,6 +224,7 @@ app.post('/api/:activity/:_id', function(req, res) {
     quantity: req.body.quantity,
     metric: req.body.metric,
     category: req.params.activity,
+    user: req.session.username,
     // dates: req.params.activity
   }).then(activity => {
     console.log("about to log categories");

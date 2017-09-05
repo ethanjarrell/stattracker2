@@ -5,6 +5,10 @@ let Schema = mongoose.Schema;
 
 const activitySchema = new mongoose.Schema({
 
+user: {
+  type: String,
+  ref: 'Category'
+},
 category: {
   type: String,
   ref: 'Category',
