@@ -31,6 +31,7 @@ body {
 
 .login__submit-button {
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .maintitle {

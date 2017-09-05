@@ -103,26 +103,26 @@ app.get('/api/signup', function(req, res) {
 
 //====RENDER LOGIN PAGE===//
 
-app.get('/api/login', function(req, res) {
-  if (req.session && req.session.authenticated) {
-    User.findOne({
-        username: req.session.username,
-        password: req.session.password
-      }).then(function(user) {
-      if (user) {
-        req.session.username = req.body.username;
-        req.session.userId = user.dataValues.id;
-        var username = req.session.username;
-        var userid = req.session.userId;
-        res.render('splash', {
-          user: user
-        });
-      }
-    })
-  } else {
-    res.redirect('/api/home')
-  }
-})
+// app.get('/api/login', function(req, res) {
+//   if (req.session && req.session.authenticated) {
+//     User.findOne({
+//         username: req.session.username,
+//         password: req.session.password
+//       }).then(function(user) {
+//       if (user) {
+//         req.session.username = req.body.username;
+//         req.session.userId = user.dataValues.id;
+//         var username = req.session.username;
+//         var userid = req.session.userId;
+//         res.render('splash', {
+//           user: user
+//         });
+//       }
+//     })
+//   } else {
+//     res.redirect('/api/home')
+//   }
+// })
 
 //====POST TO SIGNUP PAGE===//
 
