@@ -153,9 +153,9 @@ app.post('/api/login', function(req, res) {
       username: username,
       password: password,
   }).then(user => {
+    console.log(user);
     if (user.password == password) {
       req.session.username = username;
-      req.session.userId = user.dataValues.id;
       req.session.authenticated = true;
       console.log(req.session);
 
@@ -270,7 +270,7 @@ app.get('/api/:activity', function(req, res) {
 
 //====APP LISTEN ON ENVIRONMENT PORT===//
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 3000);
 console.log('starting applicaiton.  Good job!');
 
 //==========================//

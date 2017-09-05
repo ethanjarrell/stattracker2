@@ -7,7 +7,7 @@ const categorySchema = new mongoose.Schema({
 
 user: {
   type: String,
-  ref: 'Category',
+  ref: 'User',
 },
 
 activity_type: {
