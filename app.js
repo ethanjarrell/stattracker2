@@ -149,10 +149,10 @@ app.post('/api/login', function(req, res) {
       username: username,
       password: password,
     }
-  }).then(user => {
-    if (user.password == password) {
+  }).then(User => {
+    if (User.password == password) {
       req.session.username = username;
-      req.session.userId = user.dataValues.id;
+      req.session.userId = User.dataValues.id;
       req.session.authenticated = true;
       console.log(req.session);
 
