@@ -128,7 +128,6 @@ app.get('/api/login', function(req, res) {
       }).then(function(user) {
       if (user) {
         req.session.username = req.body.username;
-        req.session.userId = user.dataValues.id;
         var username = req.session.username;
         var userid = req.session.userId;
         res.render('login', {
