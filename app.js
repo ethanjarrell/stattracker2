@@ -141,7 +141,15 @@ app.post('/api/signup', function(req, res) {
 //====POST LOGIN FOR USER===//
 
 app.post('/api/login', function(req, res) {
+  let username = req.body.username;
+  let password = req.body.password;
 
+  models.user.findOne({
+    where: {
+      username: username,
+      password: password
+    }
+  }).then(user => {
     if (user.password == password) {
       req.session.username = username;
       req.session.userId = user.dataValues.id;
@@ -152,8 +160,9 @@ app.post('/api/login', function(req, res) {
     } else {
       res.redirect('/api/login');
       console.log("This is my session", req.session)
-  }
-});
+    }
+  })
+})
 
 //====CREATE NEW CATEGORY===//
 
