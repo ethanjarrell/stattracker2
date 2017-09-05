@@ -131,7 +131,7 @@ app.get('/api/login', function(req, res) {
         req.session.userId = user.dataValues.id;
         var username = req.session.username;
         var userid = req.session.userId;
-        res.render('splash', {
+        res.render('login', {
           user: user
         });
       }
