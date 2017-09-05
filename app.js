@@ -112,15 +112,17 @@ app.get('/api/login', function(req, res) {
       if (user) {
         req.session.username = req.body.username;
         req.session.userId = user.dataValues.id;
-        username = req.session.username;
-        userid = req.session.userId;
-      }
-        res.render('home', {
+        var username = req.session.username;
+        var userid = req.session.userId;
+        res.render('splash', {
           user: user
         });
-      })
-    }}
-  );
+      }
+    })
+  } else {
+    res.redirect('/api/home')
+  }
+})
 
 //====POST TO SIGNUP PAGE===//
 
