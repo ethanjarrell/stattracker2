@@ -251,6 +251,11 @@ fieldset {
   flex-flow: row wrap;
 }
 
+.inputContainer4 {
+  display: flex;
+  flex-flow: column wrap;
+}
+
 .input {
   font-size: 20px;
   color: black;
@@ -282,7 +287,7 @@ fieldset {
   border-style: solid;
 }
 
-.input .small {
+.small {
   font-size: 20px;
   color: black;
   font-weight: bold;
@@ -298,15 +303,15 @@ fieldset {
   border-radius: 10px;
 }
 
-.input .small:hover {
-  width: 75%;
+.small:hover {
+  width: 24%;
   border-color: #a0a0a0;
   border-width: 3px;
   border-style: solid;
 }
 
-.input .small:focus {
-  width: 90%;
+.small:focus {
+  width: 28%;
   background-color: white;
   border-color: #a0a0a0;
   border-width: 2px;
