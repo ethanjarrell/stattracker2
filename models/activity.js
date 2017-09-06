@@ -30,7 +30,7 @@ day: {
 },
 day_of_week: {
   type: String,
-}
+},
 year: {
   type: Number,
 },
