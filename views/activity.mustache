@@ -123,7 +123,7 @@
              While doing
           </span>
         <span class="bold">
-       {{category}}
+            {{#activities}}{{category}}{{/activities}}
           </span>
           <span>
                stuff,
@@ -135,23 +135,41 @@
              completed
           </span>
         <span class="bold">
-          {{quantity}}
+            {{#activities}}{{quantity}}{{/activities}}
           </span>
         <span class="bold">
-          {{metric}}
+            {{#activities}}{{metric}}{{/activities}}
           </span>
         <span>
             of
           </span>
         <span class="bold">
-          {{activity_name}}
+            {{#activities}}{{activity_name}}{{/activities}}
           </span>
         <span>
-             on this date:
+             on the
           </span>
         <span class="bold">
-          {{date}}
+            {{#activities}}{{day}}{{/activities}}
           </span>
+          <span>
+          of
+            </span>
+          <span class="bold">
+              {{#activities}}{{month}}{{/activities}}
+            </span>
+            <span>
+            ,
+              </span>
+            <span class="bold">
+                {{#activities}}{{year}}{{/activities}}
+              </span>
+              <span>
+              at
+                </span>
+              <span class="bold">
+                  {{#activities}}{{time}}{{/activities}}
+                </span>
       </div>
 
       {{/activities}}
