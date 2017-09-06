@@ -219,6 +219,14 @@ fieldset {
 .timeContainer {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.timeContainerLabel {
+  display: flex;
+  flex-flow: column: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .category_input {
