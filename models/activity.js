@@ -23,8 +23,9 @@ metric: {
   type: String,
 },
 date: {
-  type: Date,
-  default: Date.now
+  type: FormatDate,
+  format: 'YYYY-MM-DD',
+  default: Date.Now,
 },
 });
 
