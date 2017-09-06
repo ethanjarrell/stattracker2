@@ -296,7 +296,7 @@ fieldset {
   font-size: 20px;
   color: black;
   font-weight: bold;
-  width: 20%;
+  width: 50%;
   background-color: #f9f9f9;
   border-style: none;
   outline-color: black;
@@ -309,45 +309,14 @@ fieldset {
 }
 
 .small:hover {
-  width: 24%;
+  width: 54%;
   border-color: #a0a0a0;
   border-width: 3px;
   border-style: solid;
 }
 
 .small:focus {
-  width: 28%;
-  background-color: white;
-  border-color: #a0a0a0;
-  border-width: 2px;
-  border-style: solid;
-}
-
-.small2 {
-  font-size: 20px;
-  color: black;
-  font-weight: bold;
-  width: 35%;
-  background-color: #f9f9f9;
-  border-style: none;
-  outline-color: black;
-  outline-width: thin;
-  height: 30px;
-  border-color: #d3d3d3;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 10px;
-}
-
-.small2:hover {
-  width: 38%;
-  border-color: #a0a0a0;
-  border-width: 3px;
-  border-style: solid;
-}
-
-.small2:focus {
-  width: 41%;
+  width: 57%;
   background-color: white;
   border-color: #a0a0a0;
   border-width: 2px;
