@@ -9,8 +9,12 @@
 </head>
 
 <body>
-  <div class="maintitle">Welcome to Stat - Tracker,
+  <div class="maintitle">
+    <div class="titlediv">
+    Welcome to Stat - Tracker,
     {{#users}}{{username}}{{/users}}
+  </div>
+    <a class="logout" href="/logout">log out</a>
   </div>
 
   <div class="bodywrapper">
@@ -81,7 +85,10 @@
       {{#activities}}
 
       <div class="categoryTitle">
-      
+        <span class="bold">{{category}}<span>
+          <a class="red" href="/delete/{{category}}" type="submit">X
+            <span class="tooltiptext">delete category {{category}} ?</span>
+          </a>
       </div>
 
       <div class="activityDateContainer">

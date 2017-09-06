@@ -197,6 +197,16 @@ app.post('/api/home', function(req, res) {
 
 //==========================//
 
+//====DELETE CATEGORY===//
+
+app.get('/delete/:activity', function(req, res) {
+  Category.findOneAndRemove({activity_type: req.params.activity}).then(activity => {
+    res.redirect('/api/home')
+  });
+});
+
+//==========================//
+
 //====RENDER HOME PAGE===//
 
 app.get('/api/home', function(req, res) {
@@ -229,6 +239,18 @@ app.post('/api/:activity/:_id', function(req, res) {
   }).then(activity => {
     console.log("about to log categories");
     res.redirect('/api/:activity/:_id')
+  });
+});
+
+//==========================//
+
+//====DELETE ACTIVITY===//
+
+app.get('/:_id', function(req, res) {
+  Activity.remove({
+    activity_name: req.params._id
+  }).then(activity => {
+    res.redirect('/api/home')
   });
 });
 
@@ -268,12 +290,22 @@ app.get('/api/:activity', function(req, res) {
 
 //==========================//
 
+//====APP LOGOUT - DESTROY SESSION===//
+
+app.get('/logout', function(req, res) {
+  req.session.destroy(function(err) {})
+  res.render('splash');
+  console.log(req.session);
+});
+//==========================//
+
 //====APP LISTEN ON ENVIRONMENT PORT===//
 
 app.listen(process.env.PORT || 3000);
 console.log('starting applicaiton.  Good job!');
 
 //==========================//
+
 
 //====EXPORT APP===//
 

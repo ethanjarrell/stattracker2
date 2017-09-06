@@ -10,9 +10,11 @@
 
 <body>
   <div class="maintitle">
-
+    <div class="titlediv">
     Welcome to Stat - Tracker,
     {{#users}}{{username}}{{/users}}
+  </div>
+    <a class="logout" href="/logout">log out</a>
   </div>
 
   <div class="bodywrapper">
@@ -33,13 +35,14 @@
 
         {{#categories}}
           <div class="act"><a class="categoryList" href={{activity_type}}/{{_id}} value= {{_id}}{{#dates}}{{date}}{{/dates}}>{{activity_type}}</a>
-
-
           </div>
+
+
         {{/categories}}
       </div>
 
     </form>
+
     <form class="activity_input1" action="/api/home" method="post">
       <div class="title1container">
         <div class="title1a">Step 3: To Add an Activity to a Specific Category, Click on a Category in the List to the Left</div>
@@ -68,7 +71,19 @@
       </div>
       <label class="title2">All Tracked Activities:</label>
 
-      <div class="act">{{#activities}}<a href="/api/{{activity_name}}">{{activity_name}}</a>{{/activities}}</div>
+      <div class="act">{{#activities}}
+        <div class="home-act-container">
+        <a href="/api/{{activity_name}}">{{activity_name}}
+
+        </a>
+
+        <a name="deleteactivity" value={{activity_name}} class="red" href="/{{_id}}" type="submit">X
+          <span class="tooltiptext">delete activity {{activity_name}} ?</span>
+        </a>
+
+      </div>
+
+        {{/activities}}</div>
 
     </div>
 

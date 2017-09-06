@@ -476,6 +476,7 @@ span {
 }
 
 .activityDateContainer {
+  z-index: -1;
   width: 90%;
   background-color: #f2f2f2;
   display: flex;
@@ -504,4 +505,57 @@ span {
   color: #a0a0a0;
   margin-left: 16px;
   font-size: 17px;
+}
+
+.titlediv {
+  width: 85vw;
+  display: flex;
+  justify-content: center;
+}
+
+.logout {
+  display: flex;
+  align-self: center;
+  color: white;
+}
+
+.activitydateOutercontainer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.red {
+  margin-left: 2vw;
+  z-index: 0;
+  font-family: monospace;
+  font-weight: bold;
+  color: #ff0228;
+  text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+}
+
+.red .tooltiptext {
+  z-index: 5;
+  display: flex;
+  flex-flow: row wrap;
+  visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+}
+
+.red:hover .tooltiptext {
+    z-index: 9;
+    visibility: visible;
+}
+
+.home-act-container {
+  display: flex;
+  flex-flow: row wrap;
 }
