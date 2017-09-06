@@ -233,6 +233,8 @@ app.post('/api/:activity/:_id', function(req, res) {
     activity_name: req.body.activity,
     quantity: req.body.quantity,
     metric: req.body.metric,
+    date: req.body.date,
+    time: req.body.time,
     category: req.params.activity,
     user: req.session.username,
     // dates: req.params.activity

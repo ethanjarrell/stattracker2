@@ -11,7 +11,7 @@ user: {
 },
 
 activity_type: {
-  type: String,
+  type: mongoose.Schema.Types.Mixed,
 },
 
 });

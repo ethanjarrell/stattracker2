@@ -23,10 +23,11 @@ metric: {
   type: String,
 },
 date: {
-  type: FormatDate,
-  format: 'YYYY-MM-DD',
-  default: Date.Now,
+  type: Date,
 },
+time: {
+  type: mongoose.Schema.Types.Mixed,
+}
 });
 
 
