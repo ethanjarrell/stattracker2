@@ -23,13 +23,13 @@ metric: {
   type: String,
 },
 month: {
-  type: String,
+  type: mongoose.Schema.Types.Mixed,
 },
 day: {
-  type: String,
+  type: mongoose.Schema.Types.Mixed,
 },
 year: {
-  type: String,
+  type: Number,
 },
 time: {
   type: mongoose.Schema.Types.Mixed,
