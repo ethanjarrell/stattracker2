@@ -22,8 +22,14 @@ quantity: {
 metric: {
   type: String,
 },
-date: {
-  type: Date,
+month: {
+  type: String,
+},
+day: {
+  type: String,
+},
+year: {
+  type: String,
 },
 time: {
   type: mongoose.Schema.Types.Mixed,

@@ -103,11 +103,29 @@
             {{#activities}}{{activity_name}}{{/activities}}
           </span>
         <span>
-             on this date:
+             on the
           </span>
         <span class="bold">
-            {{#activities}}{{date}}{{/activities}}
+            {{#activities}}{{day}}{{/activities}}
           </span>
+          <span>
+          of
+            </span>
+          <span class="bold">
+              {{#activities}}{{month}}{{/activities}}
+            </span>
+            <span>
+            ,
+              </span>
+            <span class="bold">
+                {{#activities}}{{year}}{{/activities}}
+              </span>
+              <span>
+              at
+                </span>
+              <span class="bold">
+                  {{#activities}}{{time}}{{/activities}}
+                </span>
       </div>
       <div><a class="back2cat" href="/api/home">back to all categories</a></div>
 
