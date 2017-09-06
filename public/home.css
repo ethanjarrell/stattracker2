@@ -216,6 +216,11 @@ fieldset {
   align-content: center;
 }
 
+.timeContainer {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .category_input {
   display: flex;
   flex-flow: column wrap;
@@ -255,6 +260,14 @@ fieldset {
 }
 
 .inputContainer4 {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer5 {
+  width: 50%;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;

@@ -71,24 +71,44 @@
             <div class="inputContainer3">
 
             <div class="inputContainer4">
-            <div class="title2">Month Completed</div>
+            <div class="title2">Day of the Week</div>
+            <input autocomplete="off" class="input small" required type="text" name="day_of_week">
+            </div>
+
+            <div class="inputContainer4">
+            <div class="title2">Month</div>
             <input autocomplete="off" class="input small" required type="text" name="month">
             </div>
 
             <div class="inputContainer4">
-            <div class="title2">Day Completed</div>
+            <div class="title2">Day</div>
             <input autocomplete="off" class="input small" required type="text" name="day">
             </div>
 
             <div class="inputContainer4">
-            <div class="title2">Year Completed</div>
+            <div class="title2">Year</div>
             <input autocomplete="off" class="input small" required type="text" name="year">
             </div>
 
-            <div class="inputContainer4">
-            <div class="title2">Time Completed</div>
-            <input autocomplete="off" class="input small" required type="text" name="time">
+            <div class="timeContainer">
+
+            <div class="inputContainer5">
+            <div class="title2"></div>
+            <input autocomplete="off" class="input small" required type="text" name="hour">
             </div>
+
+            <div class="inputContainer5">
+            <div class="title2"></div>
+            <input autocomplete="off" class="input small" required type="text" name="minute">
+            </div>
+
+            <div class="inputContainer5">
+            <div class="title2"></div>
+            <input autocomplete="off" class="input small" required type="text" name="am_pm">
+            </div>
+
+          </div>
+
             </div>
 
           </div>
@@ -120,58 +140,61 @@
 
       <div class="activityDateContainer">
         <span>
-             While doing
+             User:
           </span>
         <span class="bold">
-            {{#activities}}{{category}}{{/activities}}
+            {{#activities}}{{user}}{{/activities}}
           </span>
           <span>
-               stuff,
-            </span>
-        <span class="bold">
-            {{#users}}{{username}}{{/users}}
-          </span>
-        <span>
-             completed
-          </span>
-        <span class="bold">
-            {{#activities}}{{quantity}}{{/activities}}
-          </span>
-        <span class="bold">
-            {{#activities}}{{metric}}{{/activities}}
-          </span>
-        <span>
-            of
-          </span>
-        <span class="bold">
-            {{#activities}}{{activity_name}}{{/activities}}
-          </span>
-        <span>
-             on the
-          </span>
-        <span class="bold">
-            {{#activities}}{{day}}{{/activities}}
-          </span>
-          <span>
-          of
+               Category:
             </span>
           <span class="bold">
-              {{#activities}}{{month}}{{/activities}}
+              {{#activities}}{{category}}{{/activities}}
             </span>
             <span>
-            ,
+                 Activity:
               </span>
             <span class="bold">
-                {{#activities}}{{year}}{{/activities}}
+                {{#activities}}{{activity_name}}{{/activities}}
               </span>
               <span>
-              at
+                   Quantity:
                 </span>
               <span class="bold">
-                  {{#activities}}{{time}}{{/activities}}
+                  {{#activities}}{{quantity}}{{/activities}}
                 </span>
-      </div>
+                <span>
+                     Metric:
+                  </span>
+                <span class="bold">
+                    {{#activities}}{{metric}}{{/activities}}
+                  </span>
+                  <span>
+                    Day:
+                  </span>
+                  <span class="bold">
+                    {{#activities}}{{day_of_week}}{{/activities}}
+                  </span>
+                  <span>
+                       Date:
+                    </span>
+                  <span class="bold">
+                      {{#activities}}{{month}}, {{day}}{{/activities}}
+                    </span>
+                        <span>
+                             Year:
+                          </span>
+                        <span class="bold">
+                            {{#activities}}{{year}}{{/activities}}
+                          </span>
+                          <span>
+                               Time:
+                            </span>
+                          <span class="bold">
+                              {{#activities}}{{hour}}:{{minute}}{{am_pm}}{{/activities}}
+                            </span>
 
+      </div>
       {{/activities}}
       <div><a class="back2cat" href="/api/home">back to all categories</a></div>
 

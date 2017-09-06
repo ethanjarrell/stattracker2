@@ -23,16 +23,25 @@ metric: {
   type: String,
 },
 month: {
-  type: mongoose.Schema.Types.Mixed,
+  type: String,
 },
 day: {
-  type: mongoose.Schema.Types.Mixed,
+  type: Number,
 },
+day_of_week: {
+  type: String,
+}
 year: {
   type: Number,
 },
-time: {
-  type: mongoose.Schema.Types.Mixed,
+hour: {
+  type: Number,
+},
+minute: {
+  type: Number,
+},
+am_pm: {
+  type: String,
 }
 });
 
