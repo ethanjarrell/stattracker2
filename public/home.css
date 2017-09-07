@@ -398,9 +398,6 @@ fieldset {
   border-left-color: gray;
   border-left-style: dashed;
   border-left-width: thin;
-  border-right-color: gray;
-  border-right-style: dashed;
-  border-right-width: thin;
 }
 
 input.input1 {
@@ -627,6 +624,24 @@ span {
   font-weight: bold;
 }
 
+.bold2 {
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-left-color: gray;
+  border-left-style: dashed;
+  border-left-width: thin;
+  border-right-color: gray;
+  border-right-style: dashed;
+  border-right-width: thin;
+}
+
 .delete{
   color: #a0a0a0;
   margin-left: 16px;
@@ -693,4 +708,10 @@ span {
 .grayOption {
   color: #e5e5e5;
   background-color: #cccccc;;
+}
+
+label {
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 2px;
 }
