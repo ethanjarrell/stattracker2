@@ -681,3 +681,7 @@ span {
   display: flex;
   flex-flow: row wrap;
 }
+
+.categoryList2 {
+  cursor: pointer;
+}
