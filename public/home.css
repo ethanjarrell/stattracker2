@@ -377,7 +377,7 @@ fieldset {
   border-style: solid;
 }
 
-.tiny:valid {
+.tiny:checked {
   background-color: #a5ffa0;
 }
 
