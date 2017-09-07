@@ -741,3 +741,30 @@ td {
   border-left: dashed gray 1px;
   border-right: dashed gray 1px;
 }
+
+}
+.popup {
+  display: none;
+}
+.popup:checked + label {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .6);
+}
+.popup:not(:checked) + label {
+  display: none;
+}
+.m-window {
+  background-color: white;
+  padding: 2em;
+  display: inline-block;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
