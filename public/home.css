@@ -223,6 +223,7 @@ fieldset {
 }
 
 .timeContainerLabel {
+  width: 75%;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
