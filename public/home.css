@@ -708,9 +708,9 @@ span {
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 30%;
+  width: 300px;
   position: relative;
-  transition: all 5s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .popup h2 {
@@ -732,6 +732,6 @@ span {
   color: #06D85F;
 }
 .popup .content {
-  max-height: 30%;
+  max-height: 300px;
   overflow: auto;
 }
