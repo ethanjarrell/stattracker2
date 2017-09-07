@@ -301,7 +301,7 @@ app.get('/api/:activity', function(req, res) {
 
 app.get('/api/date/:activity/', function(req, res) {
   User.find({username: req.session.username}).then (function(users) {
-    Category.findOne({activity_type: req.params.activity}).then (function(categories) { Activity.findOne({ activity_name: req.params.activity
+    Category.findOne({activity_type: req.params.activity}).then (function(categories) { Activity.findOne({ month: req.params.activity
     }).then(function(activities) {
           res.render('activity_comparison', {
             users: users,
