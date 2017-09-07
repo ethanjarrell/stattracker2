@@ -15,21 +15,25 @@ category: {
 },
 activity_name: {
   type: String,
+  lowercase: true,
 },
 quantity: {
   type: Number,
 },
 metric: {
   type: String,
+  lowercase: true,
 },
 month: {
   type: String,
+  lowercase: true,
 },
 day: {
   type: Number,
 },
 day_of_week: {
   type: String,
+  lowercase: true,
 },
 year: {
   type: Number,
@@ -42,6 +46,7 @@ minute: {
 },
 am_pm: {
   type: String,
+  lowercase: true,
 }
 });
 

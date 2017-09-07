@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>STAT-TRACKER</title>
+  <link rel="stylesheet" href="/home.css">
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet">
+</head>
+
+<body>
+  <div class="maintitle">
+    <div class="titlediv">
+    Welcome to Stat - Tracker,
+    {{#users}}{{username}}{{/users}}
+  </div>
+    <a class="logout" href="/logout">log out</a>
+  </div>
+
+  <div class="bodywrapper">
+
+    <form class="category_input1" action="/api/home" method="post">
+      <div class="title1container">
+        <div class="title1a">Step 1: Click 'Back to All Categories' to Create Additional Categories</div>
+      </div>
+      <label class="title2a">New Category</label>
+      <input autocomplete="off" disabled="disabled" class="input1" required type="text" name="category" value="go back to enter category">
+
+      <div class="labelAndCheckbox">
+        <div class="title1container4">
+          <div class="title1a">Step 2: Select a Category</div>
+        </div>
+        <label class="title2a">Category Name:</label>
+
+
+      </div>
+
+    </form>
+    <div class="activity_input">
+      <form action="{{#activities}}{{category}}{{/activities}}" method="post">
+        <div class="title1container">
+          <div class="title1">Step 3: Use the Input Fields to Add an Activity to the Category You Selected</div>
+        </div>
+        <div class="formcontainer">
+
+
+          <div class="formInput">
+
+            <div class="labelAndCheckbox">
+              <label class="title2">Category Name:</label>
+
+
+                <div class="act">
+                  {{#categories}}
+                   {{activity_type}}
+                   {{/categories}}
+                </div>
+
+
+            </div>
+
+            <div class="title2">New Activity</div>
+            <input autocomplete="off" class="input" required type="text" name="activity">
+
+            <div class="title2">Quantity</div>
+            <input autocomplete="off" class="input" required type="text" name="quantity">
+
+            <div class="title2">Unit of Measurement</div>
+            <input autocomplete="off" class="input" required type="text" name="metric">
+
+            <div class="inputContainer3">
+
+            <div class="inputContainer4">
+            <div class="title2">Day of the Week</div>
+            <input autocomplete="off" class="input small" required type="text" name="day_of_week">
+            </div>
+
+            <div class="inputContainer4">
+            <div class="title2">Month</div>
+            <input autocomplete="off" class="input small" required type="text" name="month">
+            </div>
+
+            <div class="inputContainer4">
+            <div class="title2">Day</div>
+            <input autocomplete="off" class="input small" required type="text" name="day">
+            </div>
+
+            <div class="inputContainer4">
+            <div class="title2">Year</div>
+            <input autocomplete="off" class="input small" required type="text" name="year">
+            </div>
+
+            <div class="timeContainerLabel">
+              Time (hour:minute, am/pm)
+            <div class="timeContainer">
+
+            <div class="inputContainer5">
+            <div class="title2"></div>
+            <input autocomplete="off" class="tiny" required type="text" name="hour">
+            </div>
+
+            <div class="inputContainer5">
+            <div class="title2"></div>
+            <input autocomplete="off" class="tiny" required type="text" name="minute">
+            </div>
+
+            <div class="inputContainer5">
+            <div class="title2"></div>
+            <input autocomplete="off" class="tiny" required type="text" name="am_pm">
+            </div>
+
+          </div>
+
+        </div>
+
+            </div>
+
+          </div>
+
+            <input class="form__submit-button" type="submit">
+
+          </div>
+          </form>
+
+            <div><a class="back2cat" href="/api/home">back to all categories</a></div>
+
+        </div>
+
+
+
+
+
+    <div class="activityname">
+      <div class="title1container">
+        <div class="title1">Step 4: Click on an Activity to See More Information About a Specific Activity</div>
+      </div>
+
+      {{#activities}}
+
+      <div class="categoryTitle">
+        <span class="bold">{{category}}<span>
+
+      </div>
+
+      <div class="activityDateContainer">
+
+        <div class="weekContainer"><div class="week">Sunday</div>
+        {{#if activities.day_of_week.sunday}}
+          X
+        {{/if}}
+      </div>
+        <div class="weekContainer"><div class="week">Monday</div>
+        {{#if activities.day_of_week.monday}}
+          X
+        {{/if}}
+      </div>
+        <div class="weekContainer"><div class="week">Tuesday</div>
+        {{#if activities.day_of_week.tuesday}}
+          X
+        {{/if}}
+      </div>
+        <div class="weekContainer"><div class="week">Wednesday</div>
+        {{#if activities.day_of_week.wednesday}}
+          X
+        {{/if}}
+      </div>
+        <div class="weekContainer"><div class="week">Thursday</div>
+        {{#if activities.day_of_week.thursday}}
+          X
+        {{/if}}
+      </div>
+        <div class="weekContainer"><div class="week">Friday</div>
+        {{#if activities.day_of_week.friday}}
+          X
+        {{/if}}
+      </div>
+        <div class="weekContainer"><div class="week">Saturday</div>
+        {{#if activities.day_of_week.saturday}}
+          X
+        {{/if}}
+      </div>
+
+      </div>
+      {{/activities}}
+      <div><a class="back2cat" href="/api/home">back to all categories</a></div>
+
+    </div>
+
+
+</div>
+
+</body>
+
+</html>
