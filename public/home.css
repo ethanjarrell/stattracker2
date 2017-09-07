@@ -701,10 +701,12 @@ span {
 table {
 }
 
-.tabletitle {
+tr {
   display: flex;
-  flex-basis:0;
-  flex-grow: 2;
+  flex-flow: column wrap;
+}
+
+th {
   font-weight: bold;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -714,10 +716,7 @@ table {
   border: solid black 1.5px;
 }
 
-.tablerow {
-  display: flex;
-  flex-basis:0;
-  flex-grow: 2;
+td {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 6px;
