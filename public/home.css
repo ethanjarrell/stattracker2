@@ -730,6 +730,7 @@ th {
 td {
   display: flex;
   justify-content: center;
+  flex-flow: row nowrap;
   flex-basis: 0;
   flex-grow: 3;
   padding-top: 4px;
