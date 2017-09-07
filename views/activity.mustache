@@ -277,31 +277,68 @@
       <table>
         <tr class="tabletitle">
           <th>Category</th>
+          {{#activities}}
+            <td>{{category}}</td>
+          {{/activities}}
+        </tr>
+        <tr class="tabletitle">
           <th>Activity</th>
+          {{#activities}}
+            <td>{{activity_name}}</td>
+          {{/activities}}
+          {{/activities}}
+        </tr>
+        <tr class="tabletitle">
           <th>Quantity</th>
+          {{#activities}}
+            <td>{{quantity}}</td>
+          {{/activities}}
+        </tr>
+        <tr class="tabletitle">
           <th>Metric</th>
+          {{#activities}}
+            <td>{{metric}}</td>
+          {{/activities}}
+        </tr>
+        <tr class="tabletitle">
           <th>Day</th>
+          {{#activities}}
+            <td>{{day_of_week}}</td>
+          {{/activities}}
+        </tr>
+        <tr class="tabletitle">
           <th>Date</th>
+          {{#activities}}
+            <td>{{month}},{{day}}</td>
+          {{/activities}}
+        </tr>
+        <tr class="tabletitle">
           <th>Year</th>
+          {{#activities}}
+            <td>{{year}}</td>
+          {{/activities}}
+        </tr>
+        <tr class="tabletitle">
           <th>Time</th>
+          {{#activities}}
+            <td>{{hour}}:{{minute}}{{am_pm}}</td>
+          {{/activities}}
         </tr>
-        {{#activities}}
-        <tr class="tablerow">
-          <th>{{category}}</th>
-          <th>{{activity_name}}</th>
-          <th>{{quantity}}</th>
-          <th>{{metric}}</th>
-          <th>{{day_of_week}}</th>
-          <th>{{month}},{{day}}</th>
-          <th>{{year}}</th>
-          <th>{{hour}}:{{minute}}{{am_pm}}</th>
-        </tr>
-        {{/activities}}
+
+
+
+
+
+
+
+
+
+
       </table>
 
-    <div><a class="back2cat" href="/api/home">back to all categories</a></div>
+      <div><a class="back2cat" href="/api/home">back to all categories</a></div>
 
-  </div>
+    </div>
 
 
   </div>
