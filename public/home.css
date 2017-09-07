@@ -269,6 +269,7 @@ fieldset {
 }
 
 .inputContainer4 {
+  width: 50%;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -318,7 +319,7 @@ fieldset {
   font-size: 20px;
   color: black;
   font-weight: bold;
-  width: 50%;
+  width: 85%;
   background-color: #f9f9f9;
   border-style: none;
   outline-color: black;
@@ -331,14 +332,14 @@ fieldset {
 }
 
 .small:hover {
-  width: 54%;
+  width: 84%;
   border-color: #a0a0a0;
   border-width: 3px;
   border-style: solid;
 }
 
 .small:focus {
-  width: 57%;
+  width: 88%;
   background-color: white;
   border-color: #a0a0a0;
   border-width: 2px;
