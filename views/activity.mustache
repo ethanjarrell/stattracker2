@@ -87,7 +87,8 @@
 
               <div class="inputContainer4">
                 <div class="title2">Year</div>
-                <input autocomplete="off" class="input small" required type="text" name="year">
+                <select autocomplete="off" class="input small" required name="year">
+                  <option value="2017">2017</option>
               </div>
 
               <div class="timeContainerLabel">
@@ -96,7 +97,7 @@
 
                   <div class="inputContainer5">
                     <div class="title2">hour</div>
-                    <select autocomplete="off" class="tiny" required>
+                    <select name="hour" autocomplete="off" class="tiny" required>
                       <option value="1" name="hour">1</option>
                       <option value="2" name="hour">2</option>
                       <option value="3" name="hour">3</option>
@@ -113,7 +114,7 @@
 
                   <div class="inputContainer5">
                     <div class="title2">minute</div>
-                    <select autocomplete="off" class="tiny" required>
+                    <select name="minute" autocomplete="off" class="tiny" required>
                       <option value="01" name="minute">01</option>
                       <option value="02" name="minute">02</option>
                       <option value="03" name="minute">03</option>
@@ -177,7 +178,7 @@
 
                   <div class="inputContainer5">
                     <div class="title2">am/pm</div>
-                    <select autocomplete="off" class="tiny" required>
+                    <select name="am_pm" autocomplete="off" class="tiny" required>
                       <option value="am" name="am_pm">am</option>
                       <option value="pm" name="am_pm">pm</option>
                   </div>
