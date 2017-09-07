@@ -378,6 +378,8 @@ fieldset {
 }
 
 .boldContainer {
+  padding-left: 4px;
+  padding-right: 4px;
   border-left-color: gray;
   border-left-style: dashed;
   border-left-width: thin;
@@ -387,6 +389,8 @@ fieldset {
 }
 
 .boldContainer2 {
+  padding-left: 4px;
+  padding-right: 4px;
   border-left-color: gray;
   border-left-style: dashed;
   border-left-width: thin;
