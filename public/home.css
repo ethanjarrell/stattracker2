@@ -706,7 +706,7 @@ table {
 
 tr {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-around;
   align-items: flex-start;
   border-bottom: solid black 1px;
@@ -718,6 +718,7 @@ th {
   flex-basis: 0;
   flex-grow: 2;
   justify-content: center;
+  flex-flow: row nowrap;
   font-weight: bold;
   padding-top: 4px;
   padding-bottom: 4px;
