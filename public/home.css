@@ -377,6 +377,10 @@ fieldset {
   border-style: solid;
 }
 
+.tiny:valid {
+  background-color: #a5ffa0;
+}
+
 .boldContainer {
   padding-left: 4px;
   padding-right: 4px;
