@@ -697,3 +697,21 @@ span {
   border-bottom-color: black;
   border-bottom-width: 2px;
 }
+
+table {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.tabletitle {
+  font-weight: bold;
+  padding: 4px;
+  background-color: #e5e5e5;
+  border: solid black 1.5px;
+}
+
+.tablerow {
+  padding: 4px;
+  border-left: dashed gray 1.5px;
+  border-right: dashed gray 1.5px;
+}
