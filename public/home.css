@@ -377,7 +377,7 @@ fieldset {
   border-style: solid;
 }
 
-.tiny:checked {
+.tiny:visited {
   background-color: #a5ffa0;
 }
 
