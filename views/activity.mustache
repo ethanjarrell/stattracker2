@@ -274,62 +274,33 @@
         <div class="title1">Step 4: Click on an Activity to See More Information About a Specific Activity</div>
       </div>
 
-      {{#activities}}
+      <table>
+        <tr>
+          <th>User</th>
+          <th>Category</th>
+          <th>Activity</th>
+          <th>Quantity</th>
+          <th>Metric</th>
+          <th>Day</th>
+          <th>Date</th>
+          <th>Year</th>
+          <th>Time</th>
+        </tr>
+        <tr>
+          {{#activities}}
+          <th>{{user}}</th>
+          <th>{{category}}</th>
+          <th>{{activity_name}}</th>
+          <th>{{quantity}}</th>
+          <th>{{metric}}</th>
+          <th>{{day_of_week}}</th>
+          <th>{{month}},{{day}}</th>
+          <th>{{year}}</th>
+          <th>{{hour}}:{{minute}}{{am_pm}}</th>
+          {{/activities}}
+        </tr>
+      </table>
 
-        <div class="categoryTitle">
-          <span class="bold">{{category}}<span>
-
-      </div>
-
-      <div class="activityDateContainer">
-
-        <div class="bold2">
-          <label class="bold2label">User</label>
-          <div>{{user}}</div>
-        </div>
-
-        <div class="bold2">
-          <label class="bold2label">Category</label>
-          <div>{{category}}</div>
-        </div>
-
-        <div class="bold2">
-          <label class="bold2label">Activity</label>
-          <div>{{activity_name}}</div>
-        </div>
-
-        <div class="bold2">
-          <label class="bold2label">Quantity</label>
-          <div>{{quantity}}</div>
-        </div>
-
-        <div class="bold2">
-          <label class="bold2label">Metric</label>
-          <div>{{metric}}</div>
-        </div>
-
-        <div class="bold2">
-          <label class="bold2label">Day</label>
-          <div>{{day_of_week}}</div>
-        </div>
-
-        <div class="bold2">
-          <label class="bold2label">Date</label>
-          <div>{{month}}, {{day}}</div>
-        </div>
-
-        <div class="bold2">
-          <label class="bold2label">Year</label>
-          <div>{{year}}</div>
-        </div>
-
-        <div class="bold2">
-          <label class="bold2label">Time</label>
-          <div>{{hour}}:{{minute}}{{am_pm}}</div>
-        </div>
-
-    </div>
-    {{/activities}}
     <div><a class="back2cat" href="/api/home">back to all categories</a></div>
 
   </div>
