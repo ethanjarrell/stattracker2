@@ -703,7 +703,11 @@ table {
 
 tr {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid black 1px;
+  border-top: solid black 1px;
 }
 
 th {
@@ -722,5 +726,5 @@ td {
   padding-left: 6px;
   padding-right: 6px;
   border-left: dashed gray 1px;
-  border-right: dashed gray 15px;
+  border-right: dashed gray 1px;
 }
