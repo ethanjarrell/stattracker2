@@ -711,7 +711,10 @@ tr {
 }
 
 th {
-  width: 75px;
+  display: flex;
+  flex-basis: 1;
+  flex-grow: 2;
+  justify-content: center;
   font-weight: bold;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -723,6 +726,7 @@ th {
 
 td {
   display: flex;
+  justify-content: center;
   flex-basis: 0;
   flex-grow: 3;
   padding-top: 4px;
