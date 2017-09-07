@@ -297,6 +297,24 @@ app.get('/api/:activity', function(req, res) {
 
 //==========================//
 
+//====RENDER WEEKLY VISUALIZATION FOR ACTIVITY===//
+
+app.get('/api/:category/:activity', function(req, res) {
+  User.find({username: req.session.username}).then (function(users) {
+    Category.findOne({activity_type: req.params.activity}).then (function(categories) { Activity.find({ activity_name: req.params.activity
+    }).then(function(activities) {
+          res.render('date', {
+            users: users,
+            categories: categories,
+            activities: activities
+          })
+      });
+    });
+  });
+});
+
+//==========================//
+
 //====APP LOGOUT - DESTROY SESSION===//
 
 app.get('/logout', function(req, res) {
