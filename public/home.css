@@ -758,6 +758,7 @@ td {
   display: none;
 }
 .m-window {
+  width: 90vw;
   background-color: white;
   padding: 2em;
   display: inline-block;
