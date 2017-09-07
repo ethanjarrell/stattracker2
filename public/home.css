@@ -697,3 +697,8 @@ span {
   border-bottom-color: black;
   border-bottom-width: 2px;
 }
+
+.tablerow {
+  display: flex;
+  flex-flow: column nowrap;
+}
