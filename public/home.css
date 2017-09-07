@@ -706,14 +706,24 @@ table {
 }
 
 .tabletitle {
+  display: flex;
+  align-items: stretch;
   font-weight: bold;
-  padding: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
   background-color: #e5e5e5;
   border: solid black 1.5px;
 }
 
 .tablerow {
-  padding: 4px;
-  border-left: dashed gray 1.5px;
-  border-right: dashed gray 1.5px;
+  display: flex;
+  align-items: stretch;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-left: dashed gray 1px;
+  border-right: dashed gray 15px;
 }
