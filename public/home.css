@@ -606,7 +606,7 @@ span {
   align-items: stretch;
   justify-content: center;
   align-items: baseline;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   margin-bottom: 15px;
   border-bottom-style: dashed;
   border-bottom-color: black;
@@ -629,7 +629,7 @@ span {
   color: black;
   font-weight: bold;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   padding-left: 4px;
@@ -710,7 +710,7 @@ span {
   background-color: #cccccc;;
 }
 
-label {
+.bold2label {
   border-bottom-style: solid;
   border-bottom-color: black;
   border-bottom-width: 2px;
