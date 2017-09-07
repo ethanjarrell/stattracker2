@@ -11,9 +11,9 @@
 <body>
   <div class="maintitle">
     <div class="titlediv">
-    Welcome to Stat - Tracker,
-    {{#users}}{{username}}{{/users}}
-  </div>
+      Welcome to Stat - Tracker,
+      {{#users}}{{username}}{{/users}}
+    </div>
     <a class="logout" href="/logout">log out</a>
   </div>
 
@@ -50,11 +50,11 @@
               <label class="title2">Category Name:</label>
 
 
-                <div class="act">
-                  {{#categories}}
-                   {{activity_type}}
-                   {{/categories}}
-                </div>
+              <div class="act">
+                {{#categories}}
+                  {{activity_type}}
+                {{/categories}}
+              </div>
 
 
             </div>
@@ -70,61 +70,61 @@
 
             <div class="inputContainer3">
 
-            <div class="inputContainer4">
-            <div class="title2">Day of the Week</div>
-            <input autocomplete="off" class="input small" required type="text" name="day_of_week">
-            </div>
+              <div class="inputContainer4">
+                <div class="title2">Day of the Week</div>
+                <input autocomplete="off" class="input small" required type="text" name="day_of_week">
+              </div>
 
-            <div class="inputContainer4">
-            <div class="title2">Month</div>
-            <input autocomplete="off" class="input small" required type="text" name="month">
-            </div>
+              <div class="inputContainer4">
+                <div class="title2">Month</div>
+                <input autocomplete="off" class="input small" required type="text" name="month">
+              </div>
 
-            <div class="inputContainer4">
-            <div class="title2">Day</div>
-            <input autocomplete="off" class="input small" required type="text" name="day">
-            </div>
+              <div class="inputContainer4">
+                <div class="title2">Day</div>
+                <input autocomplete="off" class="input small" required type="text" name="day">
+              </div>
 
-            <div class="inputContainer4">
-            <div class="title2">Year</div>
-            <input autocomplete="off" class="input small" required type="text" name="year">
-            </div>
+              <div class="inputContainer4">
+                <div class="title2">Year</div>
+                <input autocomplete="off" class="input small" required type="text" name="year">
+              </div>
 
-            <div class="timeContainerLabel">
-              Time (hour:minute, am/pm)
-            <div class="timeContainer">
+              <div class="timeContainerLabel">
+                Time (hour:minute, am/pm)
+                <div class="timeContainer">
 
-            <div class="inputContainer5">
-            <div class="title2"></div>
-            <input autocomplete="off" class="tiny" required type="text" name="hour">
-            </div>
+                  <div class="inputContainer5">
+                    <div class="title2"></div>
+                    <input autocomplete="off" class="tiny" required type="text" name="hour">
+                  </div>
 
-            <div class="inputContainer5">
-            <div class="title2"></div>
-            <input autocomplete="off" class="tiny" required type="text" name="minute">
-            </div>
+                  <div class="inputContainer5">
+                    <div class="title2"></div>
+                    <input autocomplete="off" class="tiny" required type="text" name="minute">
+                  </div>
 
-            <div class="inputContainer5">
-            <div class="title2"></div>
-            <input autocomplete="off" class="tiny" required type="text" name="am_pm">
+                  <div class="inputContainer5">
+                    <div class="title2"></div>
+                    <input autocomplete="off" class="tiny" required type="text" name="am_pm">
+                  </div>
+
+                </div>
+
+              </div>
+
             </div>
 
           </div>
+
+          <input class="form__submit-button" type="submit">
 
         </div>
+      </form>
 
-            </div>
+      <div><a class="back2cat" href="/api/home">back to all categories</a></div>
 
-          </div>
-
-            <input class="form__submit-button" type="submit">
-
-          </div>
-          </form>
-
-            <div><a class="back2cat" href="/api/home">back to all categories</a></div>
-
-        </div>
+    </div>
 
 
 
@@ -137,76 +137,92 @@
 
       {{#activities}}
 
-      <div class="categoryTitle">
-        <span class="bold">{{category}}<span>
+        <div class="categoryTitle">
+          <span class="bold">{{category}}<span>
 
       </div>
 
       <div class="activityDateContainer">
-
+        <div class="boldContainer">
         <span>
              User:
           </span>
-        <span class="bold">
+          <span class="bold">
             {{user}}
           </span>
+        </div>
+        <div class="boldContainer">
           <span>
                Category:
             </span>
           <span class="bold">
               {{category}}
             </span>
-            <span>
+        </div>
+        <div class="boldContainer">
+          <span>
                  Activity:
               </span>
-            <span class="bold">
+          <span class="bold">
                 <a class="categoryList" href={{activity_type}}/{{activity_name}}>{{activity_name}}</a>
               </span>
-              <span>
+        </div>
+        <div class="boldContainer">
+          <span>
                    Quantity:
                 </span>
-              <span class="bold">
+          <span class="bold">
                 {{quantity}}
                 </span>
-                <span>
+        </div>
+        <div class="boldContainer">
+          <span>
                      Metric:
                   </span>
-                <span class="bold">
+          <span class="bold">
                     {{metric}}
                   </span>
-                  <span>
+        </div>
+        <div class="boldContainer">
+          <span>
                     Day:
                   </span>
-                  <span class="bold">
+          <span class="bold">
                     {{day_of_week}}
                   </span>
-                  <span>
+        </div>
+        <div class="boldContainer">
+          <span>
                        Date:
                     </span>
-                  <span class="bold">
+          <span class="bold">
                       {{month}}, {{day}}
                     </span>
-                        <span>
+        </div>
+        <div class="boldContainer">
+          <span>
                              Year:
                           </span>
-                        <span class="bold">
+          <span class="bold">
                             {{year}}
                           </span>
-                          <span>
+        </div>
+        <div class="boldContainer">
+          <span>
                                Time:
                             </span>
-                          <span class="bold">
+          <span class="bold">
                               {{hour}}:{{minute}}{{am_pm}}
                             </span>
-
-      </div>
-      {{/activities}}
-      <div><a class="back2cat" href="/api/home">back to all categories</a></div>
-
+        </div>
     </div>
+    {{/activities}}
+    <div><a class="back2cat" href="/api/home">back to all categories</a></div>
+
+  </div>
 
 
-</div>
+  </div>
 
 </body>
 

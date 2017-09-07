@@ -377,6 +377,15 @@ fieldset {
   border-style: solid;
 }
 
+.boldContainer {
+  border-left-color: black;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-right-color: black;
+  border-right-style: solid;
+  border-right-width: 2px;
+}
+
 input.input1 {
   background-color: #e8e8e8;
   border-style: none;
