@@ -689,3 +689,8 @@ span {
 .categoryList2 {
   cursor: pointer;
 }
+
+.grayOption {
+  color: #e5e5e5;
+  background-color: #cccccc;;
+}
