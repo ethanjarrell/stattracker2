@@ -700,7 +700,7 @@ span {
 
 table {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: stretch;
   justify-content: space-around;
 }
