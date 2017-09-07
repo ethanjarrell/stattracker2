@@ -286,9 +286,8 @@
           <th>Year</th>
           <th>Time</th>
         </tr>
+        {{#activities}}
         <tr class="tablerow">
-          {{#activities}}
-          <div>
           <th>{{user}}</th>
           <th>{{category}}</th>
           <th>{{activity_name}}</th>
@@ -298,9 +297,8 @@
           <th>{{month}},{{day}}</th>
           <th>{{year}}</th>
           <th>{{hour}}:{{minute}}{{am_pm}}</th>
-        </div>
-          {{/activities}}
         </tr>
+        {{/activities}}
       </table>
 
     <div><a class="back2cat" href="/api/home">back to all categories</a></div>
