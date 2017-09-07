@@ -14,7 +14,7 @@
       Welcome to Stat - Tracker,
       {{#users}}{{username}}{{/users}}
     </div>
-    <a class="logout" href="/logout">log out</a>
+    <a href="/logout" class="logout">log out</a>
   </div>
 
   <div class="bodywrapper">
@@ -195,9 +195,11 @@
           <span>
                        Date:
                     </span>
-        <a class="categoryList2" href="/api/date/{{activity_name}}" value={{activity_name}}>  <span class="bold">
+          <a href="/api/date/{{activity_name}}" class="categoryList2" value= {{activity_name}}>
+             <span class="bold">
                        {{month}}, {{day}}
-                    </span></a>
+                    </span>
+                  </a>
         </div>
         <div class="boldContainer">
           <span>
