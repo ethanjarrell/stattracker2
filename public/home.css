@@ -378,11 +378,21 @@ fieldset {
 }
 
 .boldContainer {
-  background-color: #a0a0a0;
+  border-left-color: gray;
+  border-left-style: dashed;
+  border-left-width: thin;
+  border-right-color: gray;
+  border-right-style: dashed;
+  border-right-width: thin;
 }
 
 .boldContainer2 {
-  background-color: #c1c1c1;
+  border-left-color: gray;
+  border-left-style: dashed;
+  border-left-width: thin;
+  border-right-color: gray;
+  border-right-style: dashed;
+  border-right-width: thin;
 }
 
 input.input1 {
