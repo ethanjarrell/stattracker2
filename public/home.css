@@ -532,6 +532,7 @@ a:hover {
 }
 
 .activityname {
+  overflow: scroll;
   display: flex;
   flex-flow: column wrap;
   flex-basis: 0;
@@ -700,6 +701,7 @@ span {
 
 table {
   width: 90%;
+  min-width: 260px;
 }
 
 tr {
