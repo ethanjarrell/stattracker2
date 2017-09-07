@@ -699,6 +699,7 @@ span {
 }
 
 table {
+  width: 90%;
 }
 
 tr {
@@ -712,7 +713,7 @@ tr {
 
 th {
   display: flex;
-  flex-basis: 1;
+  flex-basis: 0;
   flex-grow: 2;
   justify-content: center;
   font-weight: bold;
