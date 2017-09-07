@@ -135,15 +135,15 @@
         <div class="title1">Step 4: Click on an Activity to See More Information About a Specific Activity</div>
       </div>
 
-      {{#activities}}
+
 
       <div class="categoryTitle">
-        <span class="bold">{{category}}<span>
+        <span class="bold">{{#activities}}{{category}}{{/activities}}<span>
 
       </div>
 
       <div class="activityDateContainer">
-        
+        {{#activities}}
         <span>
              User:
           </span>
